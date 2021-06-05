@@ -1,0 +1,50 @@
+{
+	"iisSettings": {
+		"windowsAuthentication": false,
+		"anonymousAuthentication": true,
+		"iisExpress": {
+			"applicationUrl": "http://localhost:53828",
+			"sslPort": 44375
+		}
+	},
+	"$schema": "http://json.schemastore.org/launchsettings.json",
+	"profiles": {
+		"IIS Express": {
+			"commandName": "IISExpress",
+			"launchBrowser": true,
+			"launchUrl": "swagger",
+			"environmentVariables": {
+				"SIGNING_CREDENTIAL": "E:\\LnD\\IdentityServer4Auth.pfx",
+				"IDENTITY_SERVER4_CONNECTION_STRING": "Host=127.0.0.1;port=5432;Database=IdentityServer;Username=postgres;Password=admin",
+				"PROTECT_KEY_PATH": "E:\\LnD\\Athena",
+				"API_URL": "https://localhost:5001",
+				"IDENTITY_CONNECTION_STRING": "Host=127.0.0.1;port=5432;Database=Identity;Username=postgres;Password=admin",
+				"ASPNETCORE_ENVIRONMENT": "Development",
+				"TOKEN_EXPIRE_TIME_IN_HOURS": "1"
+			}
+		},
+		"Auth.API": {
+			"commandName": "Project",
+			"launchBrowser": true,
+			"launchUrl": "swagger",
+			"environmentVariables": {
+				"SIGNING_CREDENTIAL": "E:\\LnD\\IdentityServer4Auth.pfx",
+				"IDENTITY_SERVER4_CONNECTION_STRING": "Host=127.0.0.1;port=5432;Database=IdentityServer;Username=postgres;Password=admin",
+				"PROTECT_KEY_PATH": "E:\\LnD\\Athena",
+				"IDENTITY_CONNECTION_STRING": "Host=127.0.0.1;port=5432;Database=Identity;Username=postgres;Password=admin",
+				"ASPNETCORE_ENVIRONMENT": "Development",
+				"IDENTITY_SERVICES_URL": "https://localhost:5002",
+				"TOKEN_EXPIRE_TIME_IN_HOURS": "1"
+			},
+			"dotnetRunMessages": "true",
+			"applicationUrl": "https://localhost:5002"
+		},
+		"Docker": {
+			"commandName": "Docker",
+			"launchBrowser": true,
+			"launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+			"publishAllPorts": true,
+			"useSSL": true
+		}
+	}
+}

@@ -1,0 +1,42 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:62161",
+      "sslPort": 44322
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+        "environmentVariables": {
+            "WRITE_DATABASE_CONNECTION_STRING": "Host=localhost;port=5432;Database=Athena;Username=postgres;Password=admin",
+            "READ_DATABASE_CONNECTION_STRING": "Host=localhost;port=5432;Database=Athena;Username=postgres;Password=admin",
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+    },
+    "Post.API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "WRITE_DATABASE_CONNECTION_STRING": "Host=localhost;port=5432;Database=Athena;Username=postgres;Password=admin",
+        "READ_DATABASE_CONNECTION_STRING": "Host=localhost;port=5432;Database=Athena;Username=postgres;Password=admin",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:5003"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  }
+}
