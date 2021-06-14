@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Common.ApiResponse;
+using MediatR;
 using Post.Domain.Contracts;
 using Post.Domain.Entities;
 using Post.Service.Post.PostDto;
@@ -10,24 +11,8 @@ using System.Threading.Tasks;
 
 namespace Post.Service.Post.Queries
 {
-	public class GetPostByIdQuery : IRequest<PostDetailDto>
+	public class GetPostByIdQuery : IRequest<ApiResult>
 	{
 		public string Id { get; set; }
-		
-		public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, PostDetailDto>
-		{
-
-			private readonly IUnitOfWork _unitOfWork;
-
-			public GetPostByIdQueryHandler(IUnitOfWork unitOfWork)
-			{
-				_unitOfWork = unitOfWork;
-			}
-			
-			public Task<PostDetailDto> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
-			{
-				throw new NotImplementedException();
-			}
-		}
 	}
 }

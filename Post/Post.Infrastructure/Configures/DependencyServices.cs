@@ -18,6 +18,7 @@ namespace Post.Infrastructure.Configures
 		{
 			#region Orders
 			services.AddService<CreatePostRequest, CreatePostHandler>();
+			services.AddService<GetPostByIdQuery, GetPostByIdHandler>();
 			#endregion
 
 			return services;
