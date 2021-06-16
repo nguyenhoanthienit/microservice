@@ -13,8 +13,8 @@ namespace Post.Domain.Entities
 			PostComments = new HashSet<CommentEntity>();
 		}
 
-		public virtual ICollection<PostCategoryEntity> PostCategories { get; }
-		public virtual ICollection<CommentEntity> PostComments { get; }
+		public virtual ICollection<PostCategoryEntity> PostCategories { get; set; }
+		public virtual ICollection<CommentEntity> PostComments { get; set; }
 		[Required]
 		public string Content { get; set; }
 		[Required]

@@ -6,9 +6,11 @@ using Post.Domain.Contracts;
 using Post.Infrastructure.Mediators;
 using Post.Service.Post.Commands;
 using Post.Service.Post.Handlers;
-using Post.Service.Post.PostDto;
+using Post.Service.Post.Dto;
 using Post.Service.Post.Queries;
 using static Post.Service.Post.Queries.GetPostByIdQuery;
+using Post.Service.Category.Queries;
+using Post.Service.Category.Handlers;
 
 namespace Post.Infrastructure.Configures
 {
@@ -19,6 +21,7 @@ namespace Post.Infrastructure.Configures
 			#region Orders
 			services.AddService<CreatePostRequest, CreatePostHandler>();
 			services.AddService<GetPostByIdQuery, GetPostByIdHandler>();
+			services.AddService<GetCategoryByPostIdQuery, GetCategoryByPostIdHandler>();
 			#endregion
 
 			return services;

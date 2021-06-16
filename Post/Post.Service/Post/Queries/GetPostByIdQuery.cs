@@ -2,7 +2,7 @@
 using MediatR;
 using Post.Domain.Contracts;
 using Post.Domain.Entities;
-using Post.Service.Post.PostDto;
+using Post.Service.Post.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;

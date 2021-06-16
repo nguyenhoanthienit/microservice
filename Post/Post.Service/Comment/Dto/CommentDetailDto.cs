@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Post.Service.Comment.CommentDto
+namespace Post.Service.Comment.Dto
 {
 	public class CommentDetailDto
 	{

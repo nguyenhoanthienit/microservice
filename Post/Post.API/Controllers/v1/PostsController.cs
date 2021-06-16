@@ -1,4 +1,5 @@
-﻿using Common.Constants;
+﻿using Common.ApiResponse;
+using Common.Constants;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Post.Infrastructure.ApiRoute;
@@ -34,10 +35,9 @@ namespace Post.API.Controllers.v1
 			{
 				return Ok(await _mediator.Send(new GetPostByIdQuery { Id = id }));
 			}
-			catch (Exception ex)
+			catch(Exception ex)
 			{
-				Console.WriteLine(ex.Message);
-				return StatusCode(400);
+				return ApiResult.Failed(Common.ErrorResult.ErrorCode.BAD_REQUEST);
 			}
 		}
 	}

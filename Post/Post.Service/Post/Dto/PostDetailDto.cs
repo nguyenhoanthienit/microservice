@@ -1,10 +1,10 @@
 ﻿using Post.Service.Category.Dto;
-using Post.Service.Comment.CommentDto;
+using Post.Service.Comment.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Post.Service.Post.PostDto
+namespace Post.Service.Post.Dto
 {
 	public class PostDetailDto
 	{
@@ -21,6 +21,6 @@ namespace Post.Service.Post.PostDto
 		public DateTime? UpdatedAt { get; set; }
 		public string UpdatedBy { get; set; }
 		public List<CommentDetailDto> Comments { get; set; }
-		public List<CategoryDetailDto> CategoryDto { get; set; }
+		public List<CategoryDetailDto> Categories { get; set; }
 	}
 }

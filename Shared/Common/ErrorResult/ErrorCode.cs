@@ -15,5 +15,8 @@ namespace Common.ErrorResult
 		EXPIRED_CODE = 1002,
 		[Description("The account was verified")]
 		VERIFIED_ACCOUNT = 1003,
+
+		[Description("Bad request")]
+		BAD_REQUEST = 400,
 	}
 }
