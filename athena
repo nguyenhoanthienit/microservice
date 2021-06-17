@@ -5,129 +5,18 @@
 -- Dumped from database version 11.2 (Debian 11.2-1.pgdg90+1)
 -- Dumped by pg_dump version 13.3
 
--- Started on 2021-06-17 17:16:31
+-- Started on 2021-06-17 17:20:56
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
+SET client_encoding = 'SQL_ASCII';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- TOC entry 2 (class 3079 OID 21212)
--- Name: unaccent; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
-
-
---
--- TOC entry 2911 (class 0 OID 0)
--- Dependencies: 2
--- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: 
---
-
-COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
-
-
-SET default_tablespace = '';
-
---
--- TOC entry 199 (class 1259 OID 21227)
--- Name: Categories; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."Categories" (
-    "Id" uuid NOT NULL,
-    "UpdatedAt" timestamp without time zone,
-    "UpdatedBy" text,
-    "CreatedAt" timestamp without time zone,
-    "CreatedBy" text,
-    "Name" text
-);
-
-
-ALTER TABLE public."Categories" OWNER TO postgres;
-
---
--- TOC entry 200 (class 1259 OID 21240)
--- Name: Comments; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."Comments" (
-    "Id" uuid NOT NULL,
-    "Author" text NOT NULL,
-    "Content" text NOT NULL,
-    "Email" text NOT NULL,
-    "IsAdmin" boolean NOT NULL,
-    "PubDate" timestamp without time zone NOT NULL,
-    "PostId" uuid NOT NULL,
-    "CreatedAt" timestamp without time zone,
-    "CreatedBy" text,
-    "UpdatedAt" timestamp without time zone,
-    "UpdatedBy" text
-);
-
-
-ALTER TABLE public."Comments" OWNER TO postgres;
-
---
--- TOC entry 201 (class 1259 OID 21262)
--- Name: PostCategories; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."PostCategories" (
-    "PostId" uuid NOT NULL,
-    "CategoryId" uuid NOT NULL,
-    "CreatedAt" timestamp without time zone,
-    "CreatedBy" text,
-    "UpdatedAt" timestamp without time zone,
-    "UpdatedBy" text
-);
-
-
-ALTER TABLE public."PostCategories" OWNER TO postgres;
-
---
--- TOC entry 198 (class 1259 OID 21219)
--- Name: Posts; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."Posts" (
-    "Id" uuid NOT NULL,
-    "Content" text NOT NULL,
-    "Excerpt" text NOT NULL,
-    "IsPublished" boolean NOT NULL,
-    "LastModified" timestamp without time zone NOT NULL,
-    "PubDate" timestamp without time zone NOT NULL,
-    "Slug" text,
-    "Title" text NOT NULL,
-    "CreatedAt" timestamp without time zone,
-    "CreatedBy" text,
-    "UpdatedAt" timestamp without time zone,
-    "UpdatedBy" text
-);
-
-
-ALTER TABLE public."Posts" OWNER TO postgres;
-
---
--- TOC entry 197 (class 1259 OID 21207)
--- Name: __EFMigrationsHistory; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public."__EFMigrationsHistory" (
-    "MigrationId" character varying(150) NOT NULL,
-    "ProductVersion" character varying(32) NOT NULL
-);
-
-
-ALTER TABLE public."__EFMigrationsHistory" OWNER TO postgres;
 
 --
 -- TOC entry 2903 (class 0 OID 21227)
@@ -141,6 +30,18 @@ COPY public."Categories" ("Id", "UpdatedAt", "UpdatedBy", "CreatedAt", "CreatedB
 e7095069-2254-4655-a3f9-c080688b9981	\N	\N	\N	\N	cate3
 ea5960c6-83df-4c81-8188-77bebe6f48f1	\N	\N	\N	\N	cate4
 63fb5e5a-3e16-47de-ba69-aed6f01066c4	\N	\N	\N	\N	cate5
+\.
+
+
+--
+-- TOC entry 2902 (class 0 OID 21219)
+-- Dependencies: 198
+-- Data for Name: Posts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Posts" ("Id", "Content", "Excerpt", "IsPublished", "LastModified", "PubDate", "Slug", "Title", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy") FROM stdin;
+c48d82ae-c5d8-11eb-8529-0242ac130003	test	teset	t	2002-02-02 00:00:00	2002-02-02 00:00:00	\N	test	\N	\N	\N	\N
+15cb10e6-c5d9-11eb-8529-0242ac130003	test2	test2	f	2003-03-03 00:00:00	2003-03-03 00:00:00	\N	test2	\N	\N	\N	\N
 \.
 
 
@@ -173,18 +74,6 @@ c48d82ae-c5d8-11eb-8529-0242ac130003	63fb5e5a-3e16-47de-ba69-aed6f01066c4	\N	\N	
 
 
 --
--- TOC entry 2902 (class 0 OID 21219)
--- Dependencies: 198
--- Data for Name: Posts; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public."Posts" ("Id", "Content", "Excerpt", "IsPublished", "LastModified", "PubDate", "Slug", "Title", "CreatedAt", "CreatedBy", "UpdatedAt", "UpdatedBy") FROM stdin;
-c48d82ae-c5d8-11eb-8529-0242ac130003	test	teset	t	2002-02-02 00:00:00	2002-02-02 00:00:00	\N	test	\N	\N	\N	\N
-15cb10e6-c5d9-11eb-8529-0242ac130003	test2	test2	f	2003-03-03 00:00:00	2003-03-03 00:00:00	\N	test2	\N	\N	\N	\N
-\.
-
-
---
 -- TOC entry 2901 (class 0 OID 21207)
 -- Dependencies: 197
 -- Data for Name: __EFMigrationsHistory; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -199,95 +88,7 @@ COPY public."__EFMigrationsHistory" ("MigrationId", "ProductVersion") FROM stdin
 \.
 
 
---
--- TOC entry 2770 (class 2606 OID 21256)
--- Name: Categories PK_Categories; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Categories"
-    ADD CONSTRAINT "PK_Categories" PRIMARY KEY ("Id");
-
-
---
--- TOC entry 2773 (class 2606 OID 21247)
--- Name: Comments PK_Comments; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Comments"
-    ADD CONSTRAINT "PK_Comments" PRIMARY KEY ("Id");
-
-
---
--- TOC entry 2776 (class 2606 OID 21269)
--- Name: PostCategories PK_PostCategories; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."PostCategories"
-    ADD CONSTRAINT "PK_PostCategories" PRIMARY KEY ("PostId", "CategoryId");
-
-
---
--- TOC entry 2768 (class 2606 OID 21226)
--- Name: Posts PK_Posts; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Posts"
-    ADD CONSTRAINT "PK_Posts" PRIMARY KEY ("Id");
-
-
---
--- TOC entry 2766 (class 2606 OID 21211)
--- Name: __EFMigrationsHistory PK___EFMigrationsHistory; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."__EFMigrationsHistory"
-    ADD CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId");
-
-
---
--- TOC entry 2771 (class 1259 OID 21254)
--- Name: IX_Comments_PostId; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX "IX_Comments_PostId" ON public."Comments" USING btree ("PostId");
-
-
---
--- TOC entry 2774 (class 1259 OID 21280)
--- Name: IX_PostCategories_CategoryId; Type: INDEX; Schema: public; Owner: postgres
---
-
-CREATE INDEX "IX_PostCategories_CategoryId" ON public."PostCategories" USING btree ("CategoryId");
-
-
---
--- TOC entry 2777 (class 2606 OID 21248)
--- Name: Comments FK_Comments_Posts_PostId; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."Comments"
-    ADD CONSTRAINT "FK_Comments_Posts_PostId" FOREIGN KEY ("PostId") REFERENCES public."Posts"("Id") ON DELETE CASCADE;
-
-
---
--- TOC entry 2778 (class 2606 OID 21270)
--- Name: PostCategories FK_PostCategories_Categories_CategoryId; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."PostCategories"
-    ADD CONSTRAINT "FK_PostCategories_Categories_CategoryId" FOREIGN KEY ("CategoryId") REFERENCES public."Categories"("Id") ON DELETE CASCADE;
-
-
---
--- TOC entry 2779 (class 2606 OID 21275)
--- Name: PostCategories FK_PostCategories_Posts_PostId; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public."PostCategories"
-    ADD CONSTRAINT "FK_PostCategories_Posts_PostId" FOREIGN KEY ("PostId") REFERENCES public."Posts"("Id") ON DELETE CASCADE;
-
-
--- Completed on 2021-06-17 17:16:31
+-- Completed on 2021-06-17 17:20:56
 
 --
 -- PostgreSQL database dump complete
