@@ -22,6 +22,7 @@ namespace Post.Infrastructure.Configures
 			services.AddService<CreatePostRequest, CreatePostHandler>();
 			services.AddService<GetPostByIdQuery, GetPostByIdHandler>();
 			services.AddService<GetCategoryByPostIdQuery, GetCategoryByPostIdHandler>();
+			services.AddService<DeletePostRequest, DeletePostHandler>();
 			#endregion
 
 			return services;

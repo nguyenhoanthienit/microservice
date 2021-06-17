@@ -14,7 +14,7 @@ namespace Post.Service.Post.Commands
 		[Required]
 		public string Excerpt { get; set; }
 		[Required]
-		public Guid Id { get; set; }
+		public Guid Id { get; set; } = Guid.NewGuid();
 		public bool IsPublished { get; set; }
 		public DateTime LastModified { get; set; }
 		public DateTime PubDate { get; set; }

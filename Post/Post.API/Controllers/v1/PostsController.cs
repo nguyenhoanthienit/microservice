@@ -40,5 +40,32 @@ namespace Post.API.Controllers.v1
 				return ApiResult.Failed(Common.ErrorResult.ErrorCode.BAD_REQUEST);
 			}
 		}
+
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Update(string id, [FromBody] UpdatePostRequest request)
+		{
+			try
+			{
+				request.Id = id;
+				return Ok(await _mediator.Send(request));
+			}
+			catch (Exception ex)
+			{
+				return ApiResult.Failed(Common.ErrorResult.ErrorCode.BAD_REQUEST);
+			}
+		}
+
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> Delete(string id)
+		{
+			try
+			{
+				return Ok(await _mediator.Send(new DeletePostRequest { Id = id }));
+			}
+			catch (Exception ex)
+			{
+				return ApiResult.Failed(Common.ErrorResult.ErrorCode.BAD_REQUEST);
+			}
+		}
 	}
 }
