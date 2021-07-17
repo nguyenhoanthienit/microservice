@@ -35,9 +35,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{390C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "Gateway\ApiGateway\ApiGateway.csproj", "{DA474C16-E1FF-4C7E-B6FE-9CF70EA341F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Domain", "Auth\Auth.Domain\Auth.Domain.csproj", "{2295C6A9-E979-4B95-B90D-747BE5B82A9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Domain", "Auth\Auth.Domain\Auth.Domain.csproj", "{2295C6A9-E979-4B95-B90D-747BE5B82A9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Data", "Auth\Auth.Data\Auth.Data.csproj", "{30A3F9D1-CACF-49CB-8104-DAF9EDC67138}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Data", "Auth\Auth.Data\Auth.Data.csproj", "{30A3F9D1-CACF-49CB-8104-DAF9EDC67138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2058EA00-C548-490F-B8EB-405C025CAD71}"
+	ProjectSection(SolutionItems) = preProject
+		note.txt = note.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
